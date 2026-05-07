@@ -735,12 +735,228 @@
       transform: rotate(-3deg);
     }
 
+    .brand-avatar {
+      position: absolute;
+      left: 14px;
+      top: 52px;
+      z-index: 2;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      place-items: center;
+      gap: 6px;
+      width: 116px;
+      height: 116px;
+      padding: 9px 8px 8px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--cream);
+      box-shadow: 5px 5px 0 rgba(23, 22, 21, 0.9);
+      transform: rotate(-4deg);
+    }
+
+    .brand-avatar strong {
+      width: 100%;
+      min-width: 0;
+      color: var(--ink);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    .brand-symbol {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 70px;
+      aspect-ratio: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--symbol-bg, #fff);
+      overflow: hidden;
+    }
+
+    .brand-symbol::before,
+    .brand-symbol::after {
+      content: "";
+      position: absolute;
+    }
+
+    .brand-symbol span {
+      position: relative;
+      z-index: 2;
+      color: var(--ink);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .brand-gpt .brand-symbol {
+      --symbol-bg: conic-gradient(from 28deg, #10a37f 0 16%, #f2f7ef 16% 24%, #10a37f 24% 40%, #f2f7ef 40% 48%, #10a37f 48% 64%, #f2f7ef 64% 72%, #10a37f 72% 88%, #f2f7ef 88% 100%);
+    }
+
+    .brand-gpt .brand-symbol::before {
+      inset: 14px;
+      border: 7px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+    }
+
+    .brand-gpt .brand-symbol::after {
+      left: 50%;
+      top: 50%;
+      width: 48px;
+      height: 12px;
+      border: 4px solid var(--ink);
+      border-left: 0;
+      border-right: 0;
+      transform: translate(-50%, -50%) rotate(35deg);
+    }
+
+    .brand-claude .brand-symbol {
+      --symbol-bg: #d97742;
+      border-radius: 46% 54% 48% 52%;
+    }
+
+    .brand-claude .brand-symbol::before {
+      inset: 9px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background:
+        linear-gradient(45deg, transparent 42%, var(--cream) 42% 58%, transparent 58%),
+        linear-gradient(-45deg, transparent 42%, var(--cream) 42% 58%, transparent 58%);
+      transform: rotate(12deg);
+    }
+
+    .brand-claude .brand-symbol span {
+      font-family: "Copperplate", "Avenir Next Condensed", sans-serif;
+      font-size: 34px;
+    }
+
+    .brand-gemini .brand-symbol {
+      --symbol-bg: linear-gradient(135deg, #1a73e8 0 28%, #34a853 28% 54%, #fbbc05 54% 74%, #ea4335 74% 100%);
+      border-radius: 22px;
+      transform: rotate(45deg);
+    }
+
+    .brand-gemini .brand-symbol span {
+      width: 34px;
+      aspect-ratio: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50% 50% 50% 6px;
+      background: var(--cream);
+      transform: rotate(-45deg);
+    }
+
+    .brand-gemini .brand-symbol span::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 9px;
+      width: 10px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+
+    .brand-copilot .brand-symbol {
+      --symbol-bg: #24292f;
+      border-radius: 24px 24px 18px 18px;
+    }
+
+    .brand-copilot .brand-symbol::before {
+      left: 12px;
+      right: 12px;
+      top: 18px;
+      height: 25px;
+      border: 3px solid var(--cream);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 31% 50%, var(--cream) 0 5px, transparent 6px),
+        radial-gradient(circle at 69% 50%, var(--cream) 0 5px, transparent 6px);
+    }
+
+    .brand-copilot .brand-symbol::after {
+      left: 16px;
+      right: 16px;
+      bottom: 11px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--yellow);
+    }
+
+    .brand-cursor .brand-symbol {
+      --symbol-bg: #0f1115;
+      border-radius: 16px;
+    }
+
+    .brand-cursor .brand-symbol::before {
+      left: 17px;
+      top: 11px;
+      width: 34px;
+      height: 46px;
+      background: var(--cream);
+      clip-path: polygon(0 0, 0 86%, 12px 73%, 20px 100%, 31px 95%, 23px 69%, 42px 69%);
+    }
+
+    .brand-cursor .brand-symbol::after {
+      left: 21px;
+      top: 15px;
+      width: 21px;
+      height: 28px;
+      background: var(--cyan);
+      clip-path: polygon(0 0, 0 82%, 9px 68%, 14px 92%, 21px 89%, 15px 63%, 29px 63%);
+    }
+
+    .brand-team .brand-symbol {
+      --symbol-bg: #111;
+    }
+
+    .brand-team .brand-symbol::before {
+      width: 46px;
+      aspect-ratio: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 28%, var(--green) 0 9px, transparent 10px),
+        radial-gradient(circle at 30% 62%, var(--yellow) 0 8px, transparent 9px),
+        radial-gradient(circle at 70% 62%, var(--red) 0 8px, transparent 9px),
+        var(--cream);
+    }
+
+    .door-decal {
+      position: absolute;
+      left: 18%;
+      top: 50%;
+      z-index: 2;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      max-width: 82px;
+      height: 24px;
+      padding: 0 8px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--decal-bg, var(--yellow));
+      color: var(--ink);
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+      box-shadow: 2px 2px 0 rgba(23, 22, 21, 0.8);
+    }
+
     .mini-car {
       position: absolute;
-      left: 8%;
-      right: 8%;
-      bottom: 32px;
-      height: 84px;
+      left: 35%;
+      right: 7%;
+      bottom: 31px;
+      height: 80px;
       transform: rotate(-1deg);
     }
 
@@ -1412,7 +1628,31 @@
       }
 
       .vehicle-banner {
-        min-height: 166px;
+        min-height: 184px;
+      }
+
+      .brand-avatar {
+        left: 12px;
+        top: 50px;
+        width: 106px;
+        height: 106px;
+      }
+
+      .brand-symbol {
+        width: 62px;
+      }
+
+      .mini-car {
+        left: 34%;
+        right: 5%;
+        bottom: 32px;
+      }
+
+      .door-decal {
+        left: 14%;
+        min-width: 48px;
+        max-width: 72px;
+        font-size: 10px;
       }
 
       .card-actions {
@@ -1539,9 +1779,13 @@
             <div class="vehicle-banner">
               <span class="plate">GPT-PLUS</span>
               <span class="route-pill">热租 · 7min 回</span>
+              <div class="brand-avatar brand-gpt" aria-label="ChatGPT 标识">
+                <div class="brand-symbol" aria-hidden="true"><span></span></div>
+                <strong>ChatGPT</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">GPT</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
@@ -1575,9 +1819,13 @@
             <div class="vehicle-banner">
               <span class="plate">CLAUDE-MAX</span>
               <span class="route-pill">长文友好</span>
+              <div class="brand-avatar brand-claude" aria-label="Claude 标识">
+                <div class="brand-symbol" aria-hidden="true"><span>C</span></div>
+                <strong>Claude</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">CLAUDE</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
@@ -1611,9 +1859,13 @@
             <div class="vehicle-banner">
               <span class="plate">GEMINI-ADV</span>
               <span class="route-pill">多模态</span>
+              <div class="brand-avatar brand-gemini" aria-label="Gemini 标识">
+                <div class="brand-symbol" aria-hidden="true"><span></span></div>
+                <strong>Gemini</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">GEMINI</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
@@ -1647,9 +1899,13 @@
             <div class="vehicle-banner">
               <span class="plate">COPILOT</span>
               <span class="route-pill">码农专线</span>
+              <div class="brand-avatar brand-copilot" aria-label="Copilot 标识">
+                <div class="brand-symbol" aria-hidden="true"><span></span></div>
+                <strong>Copilot</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">COPILOT</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
@@ -1683,9 +1939,13 @@
             <div class="vehicle-banner">
               <span class="plate">CURSOR-PRO</span>
               <span class="route-pill">新上架</span>
+              <div class="brand-avatar brand-cursor" aria-label="Cursor 标识">
+                <div class="brand-symbol" aria-hidden="true"><span></span></div>
+                <strong>Cursor</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">CURSOR</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
@@ -1719,9 +1979,13 @@
             <div class="vehicle-banner">
               <span class="plate">TEAM-SEAT</span>
               <span class="route-pill">企业余量</span>
+              <div class="brand-avatar brand-team" aria-label="GPT Team 标识">
+                <div class="brand-symbol" aria-hidden="true"><span></span></div>
+                <strong>GPT Team</strong>
+              </div>
               <div class="mini-car" aria-hidden="true">
                 <div class="mini-roof"><div class="mini-window one"></div><div class="mini-window two"></div></div>
-                <div class="mini-body"></div>
+                <div class="mini-body"><span class="door-decal">TEAM</span></div>
                 <div class="mini-wheel left"></div>
                 <div class="mini-wheel right"></div>
               </div>
