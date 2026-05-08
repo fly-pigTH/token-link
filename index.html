@@ -1085,21 +1085,24 @@
     }
 
     .parking-deck {
-      margin: 34px 0 58px;
+      width: min(1680px, calc(100vw - 28px));
+      margin: 40px 0 68px;
+      margin-left: calc(50% - 50vw + 14px);
+      padding-inline: clamp(0px, 1.4vw, 16px);
       scroll-margin-top: 92px;
     }
 
     .parking-shell {
       display: grid;
-      grid-template-columns: minmax(0, 1.46fr) minmax(300px, 0.64fr);
-      gap: 18px;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.34fr);
+      gap: 20px;
+      align-items: start;
     }
 
     .parking-map {
       position: relative;
-      min-height: 620px;
-      padding: 20px;
+      min-height: 880px;
+      padding: 22px;
       border: 3px solid var(--ink);
       border-radius: var(--radius);
       color: var(--cream);
@@ -1182,18 +1185,52 @@
       flex: 0 0 auto;
     }
 
+    .lot-scale-strip {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 18px;
+    }
+
+    .lot-stat {
+      min-height: 58px;
+      padding: 9px 10px;
+      border: 2px solid rgba(255, 248, 231, 0.28);
+      border-radius: 7px;
+      background: rgba(255, 248, 231, 0.08);
+      box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .lot-stat span {
+      display: block;
+      color: rgba(255, 248, 231, 0.58);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .lot-stat strong {
+      display: block;
+      margin-top: 5px;
+      font-size: clamp(20px, 2.2vw, 30px);
+      font-weight: 950;
+      line-height: 0.9;
+    }
+
     .parking-zones {
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0;
     }
 
     .parking-zone {
       --zone: var(--red);
-      min-height: 240px;
+      min-height: 316px;
       padding: 12px;
       border: 2px solid rgba(255, 248, 231, 0.38);
       border-radius: var(--radius);
@@ -1214,6 +1251,14 @@
 
     .zone-d {
       --zone: var(--yellow);
+    }
+
+    .zone-e {
+      --zone: var(--cyan);
+    }
+
+    .zone-f {
+      --zone: #a84f2f;
     }
 
     .zone-head {
@@ -1248,12 +1293,12 @@
     .parking-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 9px;
     }
 
     .parking-spot {
       position: relative;
-      min-height: 144px;
+      min-height: 136px;
       padding: 11px;
       border: 2px solid rgba(255, 248, 231, 0.66);
       border-radius: 7px;
@@ -1415,8 +1460,87 @@
       line-height: 1.2;
     }
 
-    .parking-info {
+    .parking-overflow {
       position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 14px;
+      border: 2px solid rgba(255, 248, 231, 0.26);
+      border-radius: var(--radius);
+      background: rgba(23, 22, 21, 0.28);
+    }
+
+    .overflow-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(255, 248, 231, 0.78);
+      font-size: 13px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .overflow-grid {
+      display: grid;
+      grid-template-columns: repeat(18, minmax(14px, 1fr));
+      gap: 7px;
+    }
+
+    .micro-slot {
+      position: relative;
+      display: block;
+      aspect-ratio: 0.72;
+      min-height: 24px;
+      border: 1px solid rgba(255, 248, 231, 0.34);
+      border-radius: 4px;
+      background: rgba(255, 248, 231, 0.05);
+      overflow: hidden;
+    }
+
+    .micro-slot::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 5px;
+      bottom: 5px;
+      width: 45%;
+      transform: translateX(-50%);
+      border: 2px solid rgba(23, 22, 21, 0.8);
+      border-radius: 7px;
+      background: var(--micro, transparent);
+      opacity: 0;
+    }
+
+    .micro-slot.has-car::before {
+      opacity: 1;
+    }
+
+    .micro-slot.red {
+      --micro: var(--red);
+    }
+
+    .micro-slot.green {
+      --micro: var(--green);
+    }
+
+    .micro-slot.blue {
+      --micro: var(--blue);
+    }
+
+    .micro-slot.yellow {
+      --micro: var(--yellow);
+    }
+
+    .micro-slot.cyan {
+      --micro: var(--cyan);
+    }
+
+    .parking-info {
+      position: sticky;
+      top: 92px;
       min-height: 620px;
       padding: 20px;
       border: 3px solid var(--ink);
@@ -1471,6 +1595,192 @@
       font-size: 16px;
       font-weight: 780;
       line-height: 1.45;
+    }
+
+    .vertical-garage {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+      gap: 20px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .vertical-copy {
+      position: relative;
+      padding: 20px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--cream);
+      box-shadow: 8px 8px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .vertical-copy::before {
+      content: "P4";
+      position: absolute;
+      right: -8px;
+      bottom: -38px;
+      color: rgba(23, 22, 21, 0.06);
+      font-size: 160px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .vertical-copy h3 {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 10px;
+      font-size: clamp(34px, 4vw, 60px);
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    .vertical-copy p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(23, 22, 21, 0.66);
+      font-size: 16px;
+      font-weight: 780;
+      line-height: 1.5;
+    }
+
+    .garage-tower {
+      position: relative;
+      padding: 18px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(255, 248, 231, 0.08) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(135deg, #343837, #202322);
+      box-shadow: 9px 9px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .garage-tower::before {
+      content: "";
+      position: absolute;
+      right: 11%;
+      top: 8%;
+      bottom: 9%;
+      width: 116px;
+      border: 3px solid rgba(255, 194, 51, 0.58);
+      border-left-width: 9px;
+      border-radius: 999px;
+      transform: skewY(-11deg);
+      opacity: 0.72;
+    }
+
+    .tower-roof {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+      color: var(--cream);
+    }
+
+    .tower-roof strong {
+      font-size: clamp(28px, 3vw, 46px);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .tower-roof span {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      padding: 0 10px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .garage-levels {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+    }
+
+    .garage-level {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 10px;
+      align-items: stretch;
+      min-height: 96px;
+      padding: 10px;
+      border: 2px solid rgba(255, 248, 231, 0.38);
+      border-radius: 8px;
+      background: rgba(255, 248, 231, 0.08);
+      box-shadow: inset 0 -7px 0 rgba(0, 0, 0, 0.18);
+    }
+
+    .level-label {
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      padding: 8px;
+      border: 2px solid rgba(255, 248, 231, 0.28);
+      border-radius: 6px;
+      color: var(--cream);
+      background: rgba(23, 22, 21, 0.22);
+    }
+
+    .level-label strong {
+      font-size: 30px;
+      line-height: 0.9;
+    }
+
+    .level-label span {
+      color: rgba(255, 248, 231, 0.62);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .level-slots {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tower-slot.parking-spot {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 8px;
+      align-items: center;
+      min-height: 76px;
+      padding: 9px;
+    }
+
+    .tower-slot.parking-spot::before {
+      display: none;
+    }
+
+    .tower-slot .tower-car {
+      width: 36px;
+      height: 50px;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--lot-color, var(--red));
+      box-shadow: 3px 3px 0 rgba(23, 22, 21, 0.42);
+    }
+
+    .tower-slot strong,
+    .tower-slot small {
+      margin: 0;
+    }
+
+    @media (min-width: 1708px) {
+      .parking-deck {
+        margin-left: calc(50% - 840px);
+      }
     }
 
     .selected-grid {
@@ -2229,7 +2539,17 @@
       }
 
       .parking-info {
+        position: relative;
+        top: auto;
         min-height: 0;
+      }
+
+      .parking-zones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .vertical-garage {
+        grid-template-columns: 1fr;
       }
 
       .owner-panel {
@@ -2389,7 +2709,10 @@
       }
 
       .parking-deck {
+        width: 100%;
         margin: 24px 0 42px;
+        margin-left: 0;
+        padding-inline: 0;
         scroll-margin-top: 72px;
       }
 
@@ -2421,6 +2744,10 @@
         width: 48px;
         height: 48px;
         font-size: 26px;
+      }
+
+      .lot-scale-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .parking-zones {
@@ -2471,6 +2798,29 @@
 
       .selected-grid {
         grid-template-columns: 1fr;
+      }
+
+      .overflow-grid {
+        grid-template-columns: repeat(9, minmax(14px, 1fr));
+        gap: 6px;
+      }
+
+      .vertical-copy,
+      .garage-tower {
+        padding: 16px;
+      }
+
+      .garage-level {
+        grid-template-columns: 1fr;
+      }
+
+      .level-slots {
+        grid-template-columns: 1fr;
+      }
+
+      .tower-slot.parking-spot {
+        grid-template-columns: auto minmax(0, 1fr);
+        min-height: 72px;
       }
 
       .vehicle-card {
@@ -2670,20 +3020,27 @@
       <section id="parking" class="parking-deck" aria-labelledby="parking-title">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Aerial Parking Lot</p>
-            <h2 id="parking-title">俯视停车场选车</h2>
-            <p class="section-copy">把可拼单账号排成停车场车位。不同分区代表不同使用场景，点击任意车位即可查看这辆车的份额和车主信息。</p>
+            <p class="section-kicker">Mega Parking Lot</p>
+            <h2 id="parking-title">超大停车场选车</h2>
+            <p class="section-copy">把可拼单账号放进一个大型 AI 停车场：地面车场负责快速扫货，立体车库负责高密度停放。点击任意车位即可查看份额、车主和规则。</p>
           </div>
         </div>
 
         <div class="parking-shell">
-          <div class="parking-map" aria-label="AI 订阅停车场鸟瞰图">
+          <div class="parking-map" aria-label="AI 订阅超大停车场鸟瞰图">
             <div class="parking-map-top">
               <div class="parking-map-title">
-                <strong>Token Link Parking</strong>
-                <span>从空中扫一眼，直接挑一辆适合的 AI 订阅车</span>
+                <strong>Token Link Mega Lot</strong>
+                <span>地面 6 大分区 · 远端车位持续上新 · 点车位直接选账号</span>
               </div>
               <div class="deck-badge" aria-hidden="true">P</div>
+            </div>
+
+            <div class="lot-scale-strip" aria-label="停车场规模">
+              <div class="lot-stat"><span>可见车位</span><strong>96+</strong></div>
+              <div class="lot-stat"><span>在线车主</span><strong>42</strong></div>
+              <div class="lot-stat"><span>地面分区</span><strong>A-F</strong></div>
+              <div class="lot-stat"><span>立体车库</span><strong>4F</strong></div>
             </div>
 
             <div class="parking-zones">
@@ -2706,6 +3063,13 @@
                     <strong>GPT Team</strong>
                     <small>4 座 · ¥45/月</small>
                   </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="ChatGPT Pro 旗舰轿跑" data-owner="Hana" data-zone="A-09 重度额度区" data-share="68%" data-price="¥79/月" data-rule="高峰可约" data-desc="适合重度写作、复杂推理和长时间工作流，额度更宽，适合项目期拼单。">
+                    <span class="spot-code">A-09</span>
+                    <div class="lot-car sport" style="--lot-color: #ff6b4a;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>ChatGPT Pro</strong>
+                    <small>1 座 · ¥79/月</small>
+                  </button>
                 </div>
               </div>
 
@@ -2721,6 +3085,13 @@
                     <strong>Claude Max</strong>
                     <small>1 座 · ¥59/月</small>
                   </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Claude Pro 通勤车" data-owner="Bo" data-zone="B-12 长文研究区" data-share="52%" data-price="¥35/月" data-rule="白天优先" data-desc="适合日常文档、摘要和方案校对，容量适中，适合轻量研究用户。">
+                    <span class="spot-code">B-12</span>
+                    <div class="lot-car compact" style="--lot-color: #75c59b;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Claude Pro</strong>
+                    <small>2 座 · ¥35/月</small>
+                  </button>
                 </div>
               </div>
 
@@ -2735,6 +3106,13 @@
                     <div class="lot-car suv" style="--lot-color: #3676d4;" aria-hidden="true"><span class="lot-stripe"></span></div>
                     <strong>Gemini Advanced</strong>
                     <small>3 座 · ¥25/月</small>
+                  </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Google AI Pro 蓝色小巴" data-owner="Tao" data-zone="C-10 多模态区" data-share="61%" data-price="¥28/月" data-rule="图片优先" data-desc="适合图片理解、Google 生态办公和多模态轻任务，适合预算敏感用户。">
+                    <span class="spot-code">C-10</span>
+                    <div class="lot-car van" style="--lot-color: #5aa0ff;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Google AI Pro</strong>
+                    <small>2 座 · ¥28/月</small>
                   </button>
                 </div>
               </div>
@@ -2758,7 +3136,71 @@
                     <strong>Cursor Pro</strong>
                     <small>2 座 · ¥31/月</small>
                   </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Windsurf Pro 银色跑旅" data-owner="Chen" data-zone="D-18 开发者区" data-share="46%" data-price="¥27/月" data-rule="周末优先" data-desc="适合代码补全、项目理解和结对开发，空档集中在周末和夜间。">
+                    <span class="spot-code">D-18</span>
+                    <div class="lot-car wagon" style="--lot-color: #8c97a5;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Windsurf Pro</strong>
+                    <small>1 座 · ¥27/月</small>
+                  </button>
                 </div>
+              </div>
+
+              <div class="parking-zone zone-e" aria-label="E 区 搜索研究">
+                <div class="zone-head">
+                  <strong>E 区 · 搜索研究</strong>
+                  <span>Research</span>
+                </div>
+                <div class="parking-row">
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Perplexity Pro 探索车" data-owner="Yuki" data-zone="E-04 搜索研究区" data-share="58%" data-price="¥33/月" data-rule="资料优先" data-desc="适合资料检索、竞品研究和引用追踪，适合研究型拼单者。">
+                    <span class="spot-code">E-04</span>
+                    <div class="lot-car suv" style="--lot-color: #38bfd2;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Perplexity Pro</strong>
+                    <small>2 座 · ¥33/月</small>
+                  </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Notion AI 资料厢车" data-owner="Mo" data-zone="E-16 搜索研究区" data-share="44%" data-price="¥18/月" data-rule="轻量拼单" data-desc="适合知识库整理、文档生成和轻量团队协作，价格低，适合补位。">
+                    <span class="spot-code">E-16</span>
+                    <div class="lot-car van" style="--lot-color: #f4efe1;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Notion AI</strong>
+                    <small>3 座 · ¥18/月</small>
+                  </button>
+                </div>
+              </div>
+
+              <div class="parking-zone zone-f" aria-label="F 区 创意生成">
+                <div class="zone-head">
+                  <strong>F 区 · 创意生成</strong>
+                  <span>Creative</span>
+                </div>
+                <div class="parking-row">
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Midjourney 标准敞篷" data-owner="Iris" data-zone="F-07 创意生成区" data-share="63%" data-price="¥41/月" data-rule="排队制" data-desc="适合视觉灵感、海报草图和风格探索，使用窗口由双方约定。">
+                    <span class="spot-code">F-07</span>
+                    <div class="lot-car sport" style="--lot-color: #a84f2f;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Midjourney</strong>
+                    <small>1 座 · ¥41/月</small>
+                  </button>
+
+                  <button class="parking-spot" type="button" aria-pressed="false" data-car="Runway 视频面包车" data-owner="Qin" data-zone="F-20 创意生成区" data-share="50%" data-price="¥54/月" data-rule="短片优先" data-desc="适合视频生成和创意短片试跑，额度贵但适合短期项目拼单。">
+                    <span class="spot-code">F-20</span>
+                    <div class="lot-car van" style="--lot-color: #111111;" aria-hidden="true"><span class="lot-stripe"></span></div>
+                    <strong>Runway</strong>
+                    <small>1 座 · ¥54/月</small>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="parking-overflow" aria-hidden="true">
+              <div class="overflow-head">
+                <span>远端车位 · 模拟更多可拼单账号</span>
+                <span>North / South / East Extension</span>
+              </div>
+              <div class="overflow-grid">
+                <span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car green"></span><span class="micro-slot has-car blue"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot"></span><span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot"></span><span class="micro-slot has-car red"></span>
+                <span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car red"></span><span class="micro-slot has-car blue"></span><span class="micro-slot"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span>
+                <span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot"></span><span class="micro-slot has-car green"></span><span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot has-car green"></span>
+                <span class="micro-slot"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot has-car red"></span><span class="micro-slot"></span><span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot has-car cyan"></span><span class="micro-slot"></span><span class="micro-slot has-car yellow"></span><span class="micro-slot"></span><span class="micro-slot has-car red"></span><span class="micro-slot has-car green"></span><span class="micro-slot"></span><span class="micro-slot has-car blue"></span><span class="micro-slot"></span>
               </div>
             </div>
           </div>
@@ -2778,6 +3220,82 @@
             <button id="parkingDm" class="dm-btn" type="button" data-car="ChatGPT Plus 跑车" data-owner="Luna">联系这辆车的车主</button>
             <p class="parking-hint">停车场只负责帮你挑车和发起连接，后续共享方式由双方私聊确认。</p>
           </aside>
+        </div>
+
+        <div class="vertical-garage" aria-label="AI 订阅立体车库">
+          <div class="vertical-copy">
+            <span class="panel-eyebrow">Stacked Garage</span>
+            <h3>立体车库</h3>
+            <p>高价值或稀缺账号进入多层车库：企业余量放高层，开发者工具放中层，快取车位放一层。用户可以像选车位一样直接点选。</p>
+          </div>
+
+          <div class="garage-tower">
+            <div class="tower-roof">
+              <strong>4F AI Stack</strong>
+              <span>自动泊车 · DM 提车</span>
+            </div>
+            <div class="garage-levels">
+              <div class="garage-level">
+                <div class="level-label"><strong>L4</strong><span>企业余量</span></div>
+                <div class="level-slots">
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="GPT Team 高层商务位" data-owner="Nora" data-zone="L4-01 立体车库企业层" data-share="82%" data-price="¥45/月" data-rule="实名备注" data-desc="企业余量座位更宽松，适合小团队试跑、会议纪要和资料整理。">
+                    <span class="tower-car" style="--lot-color: #a84f2f;" aria-hidden="true"></span><span><strong>GPT Team</strong><small>L4-01 · 4 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Claude Team 高层商务位" data-owner="Kai" data-zone="L4-06 立体车库企业层" data-share="57%" data-price="¥69/月" data-rule="工作日优先" data-desc="适合团队文档、长上下文协作和方案推演，容量稳定。">
+                    <span class="tower-car" style="--lot-color: #2f9c78;" aria-hidden="true"></span><span><strong>Claude Team</strong><small>L4-06 · 2 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Gemini Workspace 商务位" data-owner="Ming" data-zone="L4-09 立体车库企业层" data-share="64%" data-price="¥39/月" data-rule="Google 生态" data-desc="适合团队办公、图片理解和多模态资料处理，偏工作流拼单。">
+                    <span class="tower-car" style="--lot-color: #3676d4;" aria-hidden="true"></span><span><strong>Gemini Work</strong><small>L4-09 · 3 座</small></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="garage-level">
+                <div class="level-label"><strong>L3</strong><span>开发者层</span></div>
+                <div class="level-slots">
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Cursor Pro 立体车位" data-owner="Rui" data-zone="L3-03 立体车库开发者层" data-share="40%" data-price="¥31/月" data-rule="限量高峰" data-desc="适合轻量开发、结对改代码和学习项目，释放比例保守，适合尝鲜。">
+                    <span class="tower-car" style="--lot-color: #38bfd2;" aria-hidden="true"></span><span><strong>Cursor Pro</strong><small>L3-03 · 2 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Copilot Business 立体车位" data-owner="Zoe" data-zone="L3-08 立体车库开发者层" data-share="55%" data-price="¥42/月" data-rule="夜间空档" data-desc="适合 IDE 辅助、代码补全和 PR 草稿，重点覆盖晚上与周末使用窗口。">
+                    <span class="tower-car" style="--lot-color: #ffc233;" aria-hidden="true"></span><span><strong>Copilot Biz</strong><small>L3-08 · 1 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Windsurf Pro 立体车位" data-owner="Chen" data-zone="L3-18 立体车库开发者层" data-share="46%" data-price="¥27/月" data-rule="周末优先" data-desc="适合代码补全、项目理解和结对开发，空档集中在周末和夜间。">
+                    <span class="tower-car" style="--lot-color: #8c97a5;" aria-hidden="true"></span><span><strong>Windsurf</strong><small>L3-18 · 1 座</small></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="garage-level">
+                <div class="level-label"><strong>L2</strong><span>研究层</span></div>
+                <div class="level-slots">
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Perplexity Pro 立体车位" data-owner="Yuki" data-zone="L2-04 立体车库研究层" data-share="58%" data-price="¥33/月" data-rule="资料优先" data-desc="适合资料检索、竞品研究和引用追踪，适合研究型拼单者。">
+                    <span class="tower-car" style="--lot-color: #38bfd2;" aria-hidden="true"></span><span><strong>Perplexity</strong><small>L2-04 · 2 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Claude Max 立体车位" data-owner="Kai" data-zone="L2-06 立体车库研究层" data-share="48%" data-price="¥59/月" data-rule="工作日优先" data-desc="适合文档消化、长上下文和方案推演，座位少但使用容量稳定。">
+                    <span class="tower-car" style="--lot-color: #2f9c78;" aria-hidden="true"></span><span><strong>Claude Max</strong><small>L2-06 · 1 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Gemini Advanced 立体车位" data-owner="Ming" data-zone="L2-10 立体车库研究层" data-share="72%" data-price="¥25/月" data-rule="学生友好" data-desc="适合图片理解、Google 生态和轻办公，释放份额高，适合低成本拼单。">
+                    <span class="tower-car" style="--lot-color: #3676d4;" aria-hidden="true"></span><span><strong>Gemini Adv</strong><small>L2-10 · 3 座</small></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="garage-level">
+                <div class="level-label"><strong>L1</strong><span>快取层</span></div>
+                <div class="level-slots">
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="ChatGPT Plus 快取车位" data-owner="Luna" data-zone="L1-01 立体车库快取层" data-share="64%" data-price="¥39/月" data-rule="晚高峰不限" data-desc="适合高频对话、写作、轻量代码，车主响应快，适合稳定拼单。">
+                    <span class="tower-car" style="--lot-color: #e7422f;" aria-hidden="true"></span><span><strong>ChatGPT</strong><small>L1-01 · 2 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Cursor Pro 快取车位" data-owner="Rui" data-zone="L1-11 立体车库快取层" data-share="40%" data-price="¥31/月" data-rule="限量高峰" data-desc="适合轻量开发、结对改代码和学习项目，释放比例保守，适合尝鲜。">
+                    <span class="tower-car" style="--lot-color: #38bfd2;" aria-hidden="true"></span><span><strong>Cursor Pro</strong><small>L1-11 · 2 座</small></span>
+                  </button>
+                  <button class="tower-slot parking-spot" type="button" aria-pressed="false" data-car="Copilot Pro 快取车位" data-owner="Zoe" data-zone="L1-08 立体车库快取层" data-share="55%" data-price="¥22/月" data-rule="夜间空档" data-desc="适合 IDE 辅助、代码补全和 PR 草稿，重点覆盖晚上与周末使用窗口。">
+                    <span class="tower-car" style="--lot-color: #ffc233;" aria-hidden="true"></span><span><strong>Copilot</strong><small>L1-08 · 1 座</small></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
