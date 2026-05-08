@@ -221,6 +221,407 @@
       filter: saturate(1.08);
     }
 
+    .carpool-intro {
+      position: relative;
+      padding: 8px 0 22px;
+    }
+
+    .carpool-stage {
+      position: relative;
+      min-height: 390px;
+      border: 4px solid var(--ink);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(23, 22, 21, 0.04) 1px, transparent 1px) 0 0 / 22px 22px,
+        linear-gradient(180deg, #fffaf0 0%, #f3ead8 100%);
+      box-shadow: var(--hard-shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .carpool-stage::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: 56px;
+      height: 126px;
+      border-top: 4px solid var(--ink);
+      border-bottom: 4px solid var(--ink);
+      background:
+        repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 194, 51, 0.95) 46px 74px, transparent 74px 118px),
+        #2b2926;
+      transform: rotate(-1.8deg);
+      z-index: 0;
+    }
+
+    .carpool-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255, 194, 51, 0.28) 0 90px, transparent 92px),
+        radial-gradient(circle at 88% 8%, rgba(56, 191, 210, 0.18) 0 140px, transparent 142px);
+      z-index: -1;
+    }
+
+    .scene-sign {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 950;
+      box-shadow: 5px 5px 0 var(--ink);
+      transform: rotate(-2deg);
+      white-space: nowrap;
+    }
+
+    .scene-sign::before {
+      content: "";
+      width: 10px;
+      aspect-ratio: 1;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .curb-sign {
+      position: absolute;
+      right: 9%;
+      bottom: 204px;
+      z-index: 2;
+      width: 104px;
+      padding: 8px 9px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--cream);
+      box-shadow: 4px 4px 0 var(--ink);
+      color: var(--ink);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(3deg);
+    }
+
+    .curb-sign::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 6px;
+      height: 72px;
+      border: 2px solid var(--ink);
+      border-top: 0;
+      background: var(--yellow);
+      transform: translateX(-50%);
+    }
+
+    .sun-token {
+      position: absolute;
+      right: 18%;
+      top: 28px;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 72px;
+      aspect-ratio: 1;
+      border: 4px solid var(--ink);
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 5px 5px 0 var(--ink);
+      color: var(--ink);
+      font-family: "Courier New", monospace;
+      font-size: 24px;
+      font-weight: 950;
+      animation: tokenBob 7.8s ease-in-out infinite;
+    }
+
+    @keyframes tokenBob {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(8px) rotate(6deg); }
+    }
+
+    .toy-car {
+      position: absolute;
+      left: 0;
+      bottom: 92px;
+      z-index: 3;
+      width: min(440px, 48vw);
+      height: 176px;
+      animation: carpoolDrive 8.8s cubic-bezier(0.5, 0, 0.2, 1) infinite;
+      filter: drop-shadow(9px 10px 0 rgba(23, 22, 21, 0.16));
+      will-change: transform;
+    }
+
+    @keyframes carpoolDrive {
+      0%, 62% { transform: translateX(13vw) rotate(-1deg); }
+      76% { transform: translateX(118vw) rotate(-1deg); }
+      77% { transform: translateX(-58%) rotate(-1deg); }
+      88%, 100% { transform: translateX(13vw) rotate(-1deg); }
+    }
+
+    .toy-car-roof {
+      position: absolute;
+      left: 27%;
+      right: 22%;
+      bottom: 90px;
+      height: 58px;
+      border: 5px solid var(--ink);
+      border-radius: 68px 76px 8px 8px;
+      background: #f44a35;
+    }
+
+    .toy-car-window {
+      position: absolute;
+      top: 13px;
+      width: 33%;
+      height: 31px;
+      border: 3px solid var(--ink);
+      background: linear-gradient(135deg, #dff9ff, #77c8d8);
+    }
+
+    .toy-car-window.left {
+      left: 12%;
+      border-radius: 22px 5px 5px 5px;
+      transform: skewX(-14deg);
+    }
+
+    .toy-car-window.right {
+      right: 12%;
+      border-radius: 5px 22px 5px 5px;
+      transform: skewX(14deg);
+    }
+
+    .toy-car-body {
+      position: absolute;
+      left: 2%;
+      right: 2%;
+      bottom: 24px;
+      height: 78px;
+      border: 5px solid var(--ink);
+      border-radius: 72px 92px 18px 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0 18%, transparent 18%),
+        #f04431;
+    }
+
+    .toy-car-door {
+      position: absolute;
+      left: 50%;
+      top: 17px;
+      width: 4px;
+      height: 52px;
+      background: var(--ink);
+    }
+
+    .toy-car-tag {
+      position: absolute;
+      left: 14%;
+      top: 27px;
+      padding: 5px 9px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .toy-head {
+      position: absolute;
+      z-index: 5;
+      width: 33px;
+      aspect-ratio: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: #f6c89f;
+      box-shadow: 2px 2px 0 rgba(23, 22, 21, 0.82);
+    }
+
+    .toy-head::before,
+    .toy-head::after {
+      content: "";
+      position: absolute;
+      top: 13px;
+      width: 4px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+
+    .toy-head::before {
+      left: 9px;
+    }
+
+    .toy-head::after {
+      right: 9px;
+    }
+
+    .toy-smile {
+      position: absolute;
+      left: 11px;
+      bottom: 7px;
+      width: 11px;
+      height: 5px;
+      border-bottom: 3px solid var(--ink);
+      border-radius: 0 0 999px 999px;
+    }
+
+    .driver-head {
+      left: 57%;
+      bottom: 111px;
+    }
+
+    .passenger-head {
+      left: 39%;
+      bottom: 111px;
+      opacity: 0;
+      animation: passengerAppear 8.8s ease-in-out infinite;
+    }
+
+    @keyframes passengerAppear {
+      0%, 53% { opacity: 0; transform: translateY(9px) scale(0.82); }
+      58%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .driver-arm {
+      position: absolute;
+      left: 60%;
+      bottom: 108px;
+      z-index: 4;
+      width: 40px;
+      height: 12px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: #f6c89f;
+      transform-origin: 5px 50%;
+      animation: driverWave 8.8s ease-in-out infinite;
+    }
+
+    @keyframes driverWave {
+      0%, 21%, 47%, 100% { transform: rotate(12deg); }
+      26%, 34%, 42% { transform: rotate(-35deg); }
+      30%, 38% { transform: rotate(24deg); }
+    }
+
+    .toy-wheel {
+      position: absolute;
+      bottom: 0;
+      width: 54px;
+      aspect-ratio: 1;
+      border: 5px solid var(--ink);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--yellow) 0 19%, var(--ink) 20% 30%, var(--rubber) 31%);
+      animation: toyWheel 8.8s linear infinite;
+    }
+
+    .toy-wheel.one {
+      left: 17%;
+    }
+
+    .toy-wheel.two {
+      right: 14%;
+    }
+
+    @keyframes toyWheel {
+      0%, 14%, 60% { transform: rotate(0deg); }
+      78%, 100% { transform: rotate(720deg); }
+    }
+
+    .toy-customer {
+      position: absolute;
+      left: 70%;
+      bottom: 100px;
+      z-index: 4;
+      width: 82px;
+      height: 128px;
+      animation: customerWalk 8.8s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes customerWalk {
+      0%, 14% { opacity: 0; transform: translateX(128px) translateY(0) scale(0.96); }
+      20% { opacity: 1; }
+      38%, 50% { opacity: 1; transform: translateX(-16vw) translateY(0) scale(1); }
+      57% { opacity: 0; transform: translateX(-24vw) translateY(-14px) scale(0.72); }
+      58%, 100% { opacity: 0; transform: translateX(128px) translateY(0) scale(0.96); }
+    }
+
+    .customer-head {
+      left: 24px;
+      top: 0;
+      background: #f4b58c;
+    }
+
+    .customer-body {
+      position: absolute;
+      left: 18px;
+      top: 34px;
+      width: 45px;
+      height: 58px;
+      border: 3px solid var(--ink);
+      border-radius: 18px 18px 10px 10px;
+      background: var(--green);
+      box-shadow: 3px 3px 0 rgba(23, 22, 21, 0.82);
+    }
+
+    .customer-arm {
+      position: absolute;
+      left: 3px;
+      top: 44px;
+      width: 39px;
+      height: 11px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: #f4b58c;
+      transform-origin: 34px 50%;
+      animation: customerWave 8.8s ease-in-out infinite;
+    }
+
+    @keyframes customerWave {
+      0%, 30%, 52%, 100% { transform: rotate(-24deg); }
+      35%, 45% { transform: rotate(38deg); }
+      40% { transform: rotate(-44deg); }
+    }
+
+    .customer-leg {
+      position: absolute;
+      top: 90px;
+      width: 14px;
+      height: 35px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: #222;
+      transform-origin: top center;
+      animation: legStep 0.52s ease-in-out infinite alternate;
+    }
+
+    .customer-leg.one {
+      left: 24px;
+    }
+
+    .customer-leg.two {
+      left: 46px;
+      animation-delay: 0.26s;
+    }
+
+    @keyframes legStep {
+      from { transform: rotate(-10deg); }
+      to { transform: rotate(14deg); }
+    }
+
     .hero {
       position: relative;
       display: grid;
@@ -1407,6 +1808,67 @@
         display: none;
       }
 
+      .carpool-intro {
+        padding-top: 4px;
+        padding-bottom: 16px;
+      }
+
+      .carpool-stage {
+        min-height: 360px;
+      }
+
+      .scene-sign {
+        left: 14px;
+        top: 16px;
+        max-width: calc(100% - 28px);
+        font-size: 12px;
+      }
+
+      .sun-token {
+        right: 16px;
+        top: 68px;
+        width: 54px;
+        font-size: 18px;
+      }
+
+      .curb-sign {
+        right: 14px;
+        bottom: 190px;
+        width: 88px;
+        font-size: 11px;
+      }
+
+      .curb-sign::after {
+        height: 58px;
+      }
+
+      .toy-car {
+        width: 318px;
+        bottom: 82px;
+        animation-name: carpoolDriveMobile;
+      }
+
+      @keyframes carpoolDriveMobile {
+        0%, 62% { transform: translateX(34px) rotate(-1deg); }
+        76% { transform: translateX(120vw) rotate(-1deg); }
+        77% { transform: translateX(-66%) rotate(-1deg); }
+        88%, 100% { transform: translateX(34px) rotate(-1deg); }
+      }
+
+      .toy-customer {
+        left: 70%;
+        bottom: 90px;
+        animation-name: customerWalkMobile;
+      }
+
+      @keyframes customerWalkMobile {
+        0%, 14% { opacity: 0; transform: translateX(82px) scale(0.9); }
+        20% { opacity: 1; }
+        38%, 50% { opacity: 1; transform: translateX(-88px) scale(0.92); }
+        57% { opacity: 0; transform: translateX(-132px) translateY(-14px) scale(0.64); }
+        58%, 100% { opacity: 0; transform: translateX(82px) scale(0.9); }
+      }
+
       .hero {
         padding-top: 8px;
       }
@@ -1569,6 +2031,38 @@
     </header>
 
     <main id="top">
+      <section class="carpool-intro" aria-label="拼车匹配动画">
+        <div class="carpool-stage">
+          <div class="scene-sign">TOKEN LINK · 拼车小剧场</div>
+          <div class="sun-token">₮</div>
+          <div class="curb-sign">AI<br>拼车站</div>
+
+          <div class="toy-car" aria-hidden="true">
+            <div class="toy-car-roof">
+              <div class="toy-car-window left"></div>
+              <div class="toy-car-window right"></div>
+            </div>
+            <div class="toy-head driver-head"><span class="toy-smile"></span></div>
+            <div class="toy-head passenger-head"><span class="toy-smile"></span></div>
+            <div class="driver-arm"></div>
+            <div class="toy-car-body">
+              <div class="toy-car-door"></div>
+              <div class="toy-car-tag">GPT</div>
+            </div>
+            <div class="toy-wheel one"></div>
+            <div class="toy-wheel two"></div>
+          </div>
+
+          <div class="toy-customer" aria-hidden="true">
+            <div class="toy-head customer-head"><span class="toy-smile"></span></div>
+            <div class="customer-arm"></div>
+            <div class="customer-body"></div>
+            <div class="customer-leg one"></div>
+            <div class="customer-leg two"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow"><span class="dot" aria-hidden="true"></span> AI 订阅拼单车行 · MVP Demo</div>
