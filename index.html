@@ -688,21 +688,23 @@
     }
 
     .research-slots {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .research-slot {
-      min-height: 82px;
-      padding: 10px;
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 9px;
       border: 2px dashed rgba(255, 248, 231, 0.42);
-      border-radius: 7px;
+      border-radius: 999px;
       background: rgba(23, 22, 21, 0.18);
     }
 
     .research-slot span {
-      display: block;
       color: rgba(255, 248, 231, 0.58);
       font-size: 12px;
       font-weight: 900;
@@ -710,12 +712,122 @@
     }
 
     .research-slot strong {
-      display: block;
-      margin-top: 9px;
       color: var(--cream);
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 950;
-      line-height: 1.05;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .case-wall {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-content: start;
+      min-width: 0;
+    }
+
+    .case-card {
+      position: relative;
+      min-width: 0;
+      min-height: 274px;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--cream);
+      box-shadow: 7px 7px 0 rgba(23, 22, 21, 0.86);
+      overflow: hidden;
+      transform: rotate(var(--tilt, 0deg));
+    }
+
+    .case-card:nth-child(2) {
+      --tilt: 1deg;
+    }
+
+    .case-card:nth-child(3) {
+      --tilt: -1deg;
+    }
+
+    .case-shot {
+      height: 214px;
+      border-bottom: 3px solid var(--ink);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .case-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      filter: saturate(1.04) contrast(0.98);
+    }
+
+    .case-dialog {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      gap: 7px;
+      padding: 10px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: rgba(255, 248, 231, 0.96);
+      box-shadow: 4px 4px 0 rgba(23, 22, 21, 0.82);
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 30px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 9px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .platform-badge::before {
+      content: "";
+      width: 12px;
+      aspect-ratio: 1;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .platform-badge.xhs {
+      background: #ff2442;
+      color: #fff;
+    }
+
+    .platform-badge.xianyu {
+      background: #ffe14d;
+      color: #168f86;
+    }
+
+    .platform-badge small {
+      color: currentColor;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      opacity: 0.72;
+      text-transform: uppercase;
+    }
+
+    .case-dialog p {
+      margin: 0;
+      color: rgba(23, 22, 21, 0.74);
+      font-size: 14px;
+      font-weight: 850;
+      line-height: 1.35;
     }
 
     .signal-chat {
@@ -3067,6 +3179,10 @@
         grid-template-columns: 1fr;
       }
 
+      .case-wall {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .vehicle-card {
         grid-column: span 6;
       }
@@ -3270,11 +3386,30 @@
       }
 
       .research-slots {
-        grid-template-columns: 1fr;
+        gap: 7px;
       }
 
       .research-slot {
-        min-height: 70px;
+        min-height: 42px;
+        border-radius: 8px;
+      }
+
+      .research-slot strong {
+        white-space: normal;
+        line-height: 1.12;
+      }
+
+      .case-wall {
+        grid-template-columns: 1fr;
+      }
+
+      .case-card {
+        min-height: 300px;
+        transform: none;
+      }
+
+      .case-shot {
+        height: 230px;
       }
 
       .chat-bubble {
@@ -3566,24 +3701,43 @@
             </div>
           </div>
 
-          <div class="signal-chat" aria-label="动态市场对话示意">
-            <div class="chat-bubble xhs" style="--delay: 0s;">
-              <div class="chat-source"><span>小红书用户</span><span>找搭子</span></div>
-              <p>“求 GPT Pro 拼车搭子，官网直充太贵，想一起分摊。” <em>来自案例图集</em></p>
-            </div>
-            <div class="chat-bubble xianyu" style="--delay: .8s;">
-              <div class="chat-source"><span>闲鱼供给</span><span>明码标价</span></div>
-              <p>“Gemini / Claude 订阅服务，标注官方渠道、售后和响应承诺。” <em>价格与浏览量可继续补样本</em></p>
-            </div>
-            <div class="chat-bubble group" style="--delay: 1.6s;">
-              <div class="chat-source"><span>风险反馈</span><span>换车队</span></div>
-              <p>“Team 账号被封、车队换组、售后不清楚。” <em>需要 Receipt 和平台内闭环</em></p>
-            </div>
-            <div class="chat-bubble search" style="--delay: 2.4s;">
-              <div class="chat-source"><span>平台机会</span><span>标准化</span></div>
-              <p>“把非标私聊变成车位编码、预约窗口和回执结算。” <em>本轮 V1 聚焦过程记录</em></p>
-            </div>
-            <div class="typing-bubble" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="case-wall" aria-label="小红书和闲鱼案例图墙">
+            <article class="case-card">
+              <div class="case-shot">
+                <img src="assets/cases/xhs-gpt-poster.png" alt="小红书拼车 GPT 价格对比案例截图">
+              </div>
+              <div class="case-dialog">
+                <span class="platform-badge xhs">小红书 <small>RED</small></span>
+                <p>“拼车 GPT：比官方订阅更低，强调多人分摊和月付。”</p>
+              </div>
+            </article>
+            <article class="case-card">
+              <div class="case-shot">
+                <img src="assets/cases/xianyu-gemini.jpg" alt="闲鱼 Gemini 订阅服务案例截图">
+              </div>
+              <div class="case-dialog">
+                <span class="platform-badge xianyu">闲鱼 <small>Xianyu</small></span>
+                <p>Gemini 订阅服务已出现明码标价、浏览量和售后承诺。</p>
+              </div>
+            </article>
+            <article class="case-card">
+              <div class="case-shot">
+                <img src="assets/cases/xhs-gpt-group.png" alt="小红书用户组群找 GPT 拼车案例截图">
+              </div>
+              <div class="case-dialog">
+                <span class="platform-badge xhs">小红书 <small>RED</small></span>
+                <p>“有一起拼车的吗？我建群一起找搭子。”</p>
+              </div>
+            </article>
+            <article class="case-card">
+              <div class="case-shot">
+                <img src="assets/cases/xianyu-claude.jpg" alt="闲鱼 Claude 订阅服务案例截图">
+              </div>
+              <div class="case-dialog">
+                <span class="platform-badge xianyu">闲鱼 <small>Xianyu</small></span>
+                <p>Claude Max / Pro 代订阅强调官方渠道、稳定性和风险说明。</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
