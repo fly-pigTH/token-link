@@ -2034,11 +2034,191 @@
       line-height: 1.05;
     }
 
+    .standard-code-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 6px;
+      margin: 0 0 12px;
+      padding: 12px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .standard-code-row span,
+    .booking-card label:not(.check-row) > span,
+    .receipt-item span,
+    .record-card span,
+    .seller-field span {
+      color: rgba(23, 22, 21, 0.58);
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .standard-code-row strong {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .standard-code-row small {
+      color: rgba(23, 22, 21, 0.68);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
     .parking-info .dm-btn {
       position: relative;
       z-index: 1;
       width: 100%;
       margin-top: 4px;
+    }
+
+    .booking-card,
+    .receipt-card {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      padding: 12px;
+      border: 2px solid rgba(23, 22, 21, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .booking-card h4,
+    .receipt-card h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .booking-card label,
+    .seller-field {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .booking-card select,
+    .booking-card input,
+    .seller-field select,
+    .seller-field input {
+      width: 100%;
+      min-height: 40px;
+      padding: 0 10px;
+      border: 2px solid rgba(23, 22, 21, 0.22);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 850;
+      outline: none;
+    }
+
+    .booking-card select:focus,
+    .booking-card input:focus,
+    .seller-field select:focus,
+    .seller-field input:focus {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(255, 194, 51, 0.28);
+    }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      margin-top: 9px;
+      color: rgba(23, 22, 21, 0.72);
+      font-size: 12px;
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--yellow);
+    }
+
+    .booking-actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .booking-estimate {
+      display: grid;
+      gap: 1px;
+      color: rgba(23, 22, 21, 0.62);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .booking-estimate strong {
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .book-btn {
+      min-height: 42px;
+      padding: 0 12px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: var(--cyan);
+      color: var(--ink);
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .book-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .booking-status {
+      min-height: 18px;
+      margin: 8px 0 0;
+      color: rgba(23, 22, 21, 0.62);
+      font-size: 12px;
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .receipt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .receipt-item {
+      min-width: 0;
+      padding: 8px;
+      border: 2px solid rgba(23, 22, 21, 0.1);
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .receipt-item strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 16px;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
     }
 
     .parking-hint {
@@ -2561,11 +2741,145 @@
       line-height: 1;
     }
 
+    .seller-settings {
+      display: grid;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 2px dashed rgba(255, 248, 231, 0.22);
+    }
+
+    .seller-settings h3 {
+      margin: 0;
+      color: var(--yellow);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .seller-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .seller-field span {
+      color: rgba(255, 248, 231, 0.58);
+    }
+
+    .seller-note {
+      margin: 0;
+      color: rgba(255, 248, 231, 0.64);
+      font-size: 12px;
+      font-weight: 780;
+      line-height: 1.45;
+    }
+
     .owner-btn {
       width: 100%;
       background: var(--yellow);
       color: var(--ink);
       box-shadow: 4px 4px 0 rgba(255, 248, 231, 0.84);
+    }
+
+    .record-rules {
+      margin-top: 28px;
+    }
+
+    .record-board {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(23, 22, 21, 0.05) 1px, transparent 1px) 0 0 / 22px 22px,
+        var(--cream);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+
+    .code-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .code-chip {
+      display: grid;
+      gap: 7px;
+      min-height: 116px;
+      padding: 12px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .code-chip strong {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .code-chip small {
+      color: rgba(23, 22, 21, 0.62);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .formula-bar {
+      display: grid;
+      gap: 6px;
+      padding: 14px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: #252321;
+      color: var(--cream);
+    }
+
+    .formula-bar span {
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .formula-bar strong {
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.15;
+    }
+
+    .formula-bar small {
+      color: rgba(255, 248, 231, 0.64);
+      font-size: 13px;
+      font-weight: 760;
+      line-height: 1.45;
+    }
+
+    .record-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .record-card {
+      min-width: 0;
+      padding: 13px;
+      border: 2px solid rgba(23, 22, 21, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .record-card h3 {
+      margin: 6px 0 8px;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .record-card p {
+      margin: 0;
+      color: rgba(23, 22, 21, 0.66);
+      font-size: 14px;
+      font-weight: 780;
+      line-height: 1.45;
     }
 
     .flow {
@@ -2776,6 +3090,11 @@
       }
 
       .owner-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .code-strip,
+      .record-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -3059,6 +3378,17 @@
         grid-template-columns: 1fr;
       }
 
+      .form-grid,
+      .receipt-grid,
+      .seller-grid,
+      .booking-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .book-btn {
+        width: 100%;
+      }
+
       .overflow-grid {
         grid-template-columns: repeat(9, minmax(14px, 1fr));
         gap: 6px;
@@ -3177,6 +3507,7 @@
         <a href="#parking">停车场</a>
         <a href="#inventory">车库</a>
         <a href="#owner">车主调配</a>
+        <a href="#records">V1 台账</a>
         <a href="#flow">撮合流程</a>
       </nav>
 
@@ -3224,33 +3555,33 @@
           <div class="market-copy">
             <div>
               <p class="section-kicker">Market Signals</p>
-              <h2 id="market-title">市场调研留白区</h2>
-              <p>这里预留给真实案例和数据：小红书笔记、闲鱼帖、社群问答、关键词热度、价格样本和风险反馈。后续把截图、链接和样本量填进来，就能作为首页开头的需求证据。</p>
+              <h2 id="market-title">用户已经在路边招手</h2>
+              <p>参考小红书和闲鱼样本，需求同时来自“找搭子拼车”和“卖家代订阅/代充”。首页先把这些信号做成对话证据，后续再补链接、样本量和价格分布。</p>
             </div>
             <div class="research-slots" aria-label="待补充调研材料">
-              <div class="research-slot"><span>Xiaohongshu</span><strong>小红书案例 · 待填</strong></div>
-              <div class="research-slot"><span>Xianyu</span><strong>闲鱼案例 · 待填</strong></div>
-              <div class="research-slot"><span>Community</span><strong>社群问答 · 待填</strong></div>
-              <div class="research-slot"><span>Pricing</span><strong>价格样本 · 待填</strong></div>
+              <div class="research-slot"><span>Xiaohongshu</span><strong>GPT / iCloud 拼车找搭子</strong></div>
+              <div class="research-slot"><span>Xianyu</span><strong>Gemini ¥35-59 服务样本</strong></div>
+              <div class="research-slot"><span>Risk</span><strong>Team 封号与换车队反馈</strong></div>
+              <div class="research-slot"><span>Pricing</span><strong>月付、代充、共享并存</strong></div>
             </div>
           </div>
 
           <div class="signal-chat" aria-label="动态市场对话示意">
             <div class="chat-bubble xhs" style="--delay: 0s;">
-              <div class="chat-source"><span>小红书用户</span><span>案例待填</span></div>
-              <p>“有没有 GPT / Claude 拼车？个人订太贵，用不完。” <em>截图与链接待补充</em></p>
+              <div class="chat-source"><span>小红书用户</span><span>找搭子</span></div>
+              <p>“求 GPT Pro 拼车搭子，官网直充太贵，想一起分摊。” <em>来自案例图集</em></p>
             </div>
             <div class="chat-bubble xianyu" style="--delay: .8s;">
-              <div class="chat-source"><span>闲鱼供给</span><span>样本待填</span></div>
-              <p>“AI 会员共享、月租、按座位拼。” <em>价格区间与交易样本待补充</em></p>
+              <div class="chat-source"><span>闲鱼供给</span><span>明码标价</span></div>
+              <p>“Gemini / Claude 订阅服务，标注官方渠道、售后和响应承诺。” <em>价格与浏览量可继续补样本</em></p>
             </div>
             <div class="chat-bubble group" style="--delay: 1.6s;">
-              <div class="chat-source"><span>微信群 / Discord</span><span>问答待填</span></div>
-              <p>“谁有 Gemini / Copilot 余量？只需要晚上用。” <em>使用窗口样本待补充</em></p>
+              <div class="chat-source"><span>风险反馈</span><span>换车队</span></div>
+              <p>“Team 账号被封、车队换组、售后不清楚。” <em>需要 Receipt 和平台内闭环</em></p>
             </div>
             <div class="chat-bubble search" style="--delay: 2.4s;">
-              <div class="chat-source"><span>搜索词</span><span>数据待填</span></div>
-              <p>“ChatGPT 拼车 / Claude 共享 / Copilot 合租。” <em>搜索量与趋势待补充</em></p>
+              <div class="chat-source"><span>平台机会</span><span>标准化</span></div>
+              <p>“把非标私聊变成车位编码、预约窗口和回执结算。” <em>本轮 V1 聚焦过程记录</em></p>
             </div>
             <div class="typing-bubble" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
@@ -3515,8 +3846,91 @@
               <div class="selected-spec"><span>车主规则</span><strong id="parkingRule">晚高峰不限</strong></div>
               <div class="selected-spec"><span>撮合方式</span><strong>先 DM</strong></div>
             </div>
+            <div class="standard-code-row" aria-label="标准车位编码">
+              <span>Standard Slot Code</span>
+              <strong id="parkingCode">TL-CHAT-30</strong>
+              <small id="parkingCodeMeta">30 分钟窗口 · 承诺 20 次成功响应 · A 使用窗口</small>
+            </div>
             <button id="parkingDm" class="dm-btn" type="button" data-car="ChatGPT Plus 跑车" data-owner="Luna">联系这辆车的车主</button>
-            <p class="parking-hint">停车场只负责帮你挑车和发起连接，后续共享方式由双方私聊确认。</p>
+            <form class="booking-card" id="bookingForm">
+              <h4>预约使用窗口</h4>
+              <div class="form-grid">
+                <label for="bookingOrderType"><span>订单类型</span>
+                  <select id="bookingOrderType">
+                    <option value="A 使用窗口">A 使用窗口</option>
+                    <option value="B 协助使用">B 协助使用</option>
+                  </select>
+                </label>
+                <label for="bookingTask"><span>任务类型</span>
+                  <select id="bookingTask">
+                    <option>写作</option>
+                    <option>摘要</option>
+                    <option>翻译</option>
+                    <option>编程</option>
+                    <option>文档处理</option>
+                    <option>数据整理</option>
+                    <option>其他</option>
+                  </select>
+                </label>
+                <label for="bookingModel"><span>模型能力</span>
+                  <select id="bookingModel">
+                    <option>GPT</option>
+                    <option>Claude</option>
+                    <option>Gemini</option>
+                    <option>DeepSeek</option>
+                    <option>Qwen</option>
+                    <option>Cursor / Copilot</option>
+                    <option>其他</option>
+                  </select>
+                </label>
+                <label for="bookingDuration"><span>使用时长</span>
+                  <select id="bookingDuration">
+                    <option value="15">15 分钟</option>
+                    <option value="30" selected>30 分钟</option>
+                    <option value="60">60 分钟</option>
+                    <option value="120">2 小时</option>
+                  </select>
+                </label>
+                <label for="bookingResponses"><span>预计响应数</span>
+                  <select id="bookingResponses">
+                    <option value="10">10 次</option>
+                    <option value="20" selected>20 次</option>
+                    <option value="50">50 次</option>
+                    <option value="100">100 次</option>
+                  </select>
+                </label>
+                <label for="bookingBudget"><span>预算</span>
+                  <input id="bookingBudget" inputmode="numeric" value="49" aria-label="预算金额">
+                </label>
+              </div>
+              <label class="check-row" for="riskCheck">
+                <input id="riskCheck" type="checkbox">
+                <span>风险声明：不提交违规任务，不要求交付账号，接受模型本身可能失败或限流。</span>
+              </label>
+              <label class="check-row" for="termsCheck">
+                <input id="termsCheck" type="checkbox">
+                <span>同意过程计费和平台内交易；使用窗口不因“主观质量不满意”退款。</span>
+              </label>
+              <div class="booking-actions">
+                <div class="booking-estimate"><span>建议结算区间</span><strong id="bookingEstimate">¥34-48</strong></div>
+                <button class="book-btn" id="bookingBtn" type="submit">生成预约</button>
+              </div>
+              <p class="booking-status" id="bookingStatus">选择车位后可生成 TokenLink Receipt。</p>
+            </form>
+            <div class="receipt-card" aria-label="TokenLink Receipt">
+              <h4>TokenLink Receipt</h4>
+              <div class="receipt-grid">
+                <div class="receipt-item"><span>Receipt ID</span><strong id="receiptId">TLR-DEMO</strong></div>
+                <div class="receipt-item"><span>标准车位</span><strong id="receiptCode">TL-CHAT-30</strong></div>
+                <div class="receipt-item"><span>开始时间</span><strong id="receiptStart">待预约</strong></div>
+                <div class="receipt-item"><span>结束时间</span><strong id="receiptEnd">待预约</strong></div>
+                <div class="receipt-item"><span>承诺响应</span><strong id="receiptCommit">20</strong></div>
+                <div class="receipt-item"><span>成功 / 失败</span><strong id="receiptResult">0 / 0</strong></div>
+                <div class="receipt-item"><span>争议状态</span><strong id="receiptDispute">无</strong></div>
+                <div class="receipt-item"><span>结算状态</span><strong id="receiptSettlement">待结算</strong></div>
+              </div>
+            </div>
+            <p class="parking-hint">停车场负责挑车、DM、预约窗口和标准回执；真实共享方式仍由双方在平台内确认。</p>
           </aside>
         </div>
 
@@ -3879,7 +4293,84 @@
             <div class="output-cell"><span>月租区间</span><strong id="priceOutput">¥34-42</strong></div>
             <div class="output-cell"><span>曝光等级</span><strong id="boostOutput">A</strong></div>
           </div>
+          <div class="seller-settings" aria-label="卖家挂出设置">
+            <h3>挂出设置</h3>
+            <div class="seller-grid">
+              <label class="seller-field" for="ownerSlotType"><span>可挂车位类型</span>
+                <select id="ownerSlotType">
+                  <option>TL-CHAT-30</option>
+                  <option>TL-LONG-60</option>
+                  <option>TL-ASSIST-30</option>
+                </select>
+              </label>
+              <label class="seller-field" for="ownerShares"><span>可挂份数</span>
+                <input id="ownerShares" type="number" min="1" max="12" value="2">
+              </label>
+              <label class="seller-field" for="ownerMinPrice"><span>最低价</span>
+                <input id="ownerMinPrice" inputmode="numeric" value="29">
+              </label>
+              <label class="seller-field" for="ownerTime"><span>可履约时间</span>
+                <select id="ownerTime">
+                  <option>今晚 20:00-24:00</option>
+                  <option>工作日白天</option>
+                  <option>周末优先</option>
+                  <option>双方预约</option>
+                </select>
+              </label>
+              <label class="seller-field" for="ownerDeposit"><span>保证金档位</span>
+                <select id="ownerDeposit">
+                  <option>¥50 冷启动</option>
+                  <option>¥200 稳定车主</option>
+                  <option>¥500 高信用</option>
+                  <option>¥1000 大容量</option>
+                </select>
+              </label>
+              <label class="seller-field" for="ownerDailyCap"><span>每日容量上限</span>
+                <input id="ownerDailyCap" type="number" min="1" max="30" value="6">
+              </label>
+            </div>
+            <p class="seller-note">信用分会影响曝光、限额、保证金和放款周期；新车主先小单冷启动，高信用车主减少摩擦。</p>
+          </div>
           <button class="owner-btn" id="publishBtn">发布到车库</button>
+        </div>
+      </section>
+
+      <section id="records" class="record-rules" aria-labelledby="records-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">V1 Records</p>
+            <h2 id="records-title">把非标拼单收进统一台账</h2>
+            <p class="section-copy">不改停车场体验，只在底层统一记录车位编码、预约窗口、成功响应、回执和结算状态，方便订单变多后批量管理。</p>
+          </div>
+        </div>
+        <div class="record-board">
+          <div class="code-strip" aria-label="标准车位编码">
+            <div class="code-chip"><span>聊天车位</span><strong>TL-CHAT-30</strong><small>30 分钟 · 承诺 20 次成功响应 · 标准使用窗口</small></div>
+            <div class="code-chip"><span>长文档车位</span><strong>TL-LONG-60</strong><small>60 分钟 · 承诺 20 次成功响应 · 长上下文和文档处理</small></div>
+            <div class="code-chip"><span>协助车位</span><strong>TL-ASSIST-30</strong><small>30 分钟 · 承诺 20 次成功响应 · 车主协助拆 prompt / 调参</small></div>
+          </div>
+          <div class="formula-bar">
+            <span>Billing V1</span>
+            <strong>窗口费 + 成功响应数 × 单次响应费 × 模型系数 × 任务系数 + 协助费</strong>
+            <small>计费对象是“可用过程 + 成功响应”，不是主观质量。参考：单次响应费 ¥0.3-2，普通模型 1.0，高级 1.5，深度推理 2.0，Agent 2.5；长文档 / 文件 / 代码任务系数更高。</small>
+          </div>
+          <div class="record-grid">
+            <article class="record-card">
+              <span>Dispute</span>
+              <h3>争议只看过程</h3>
+              <p>围绕窗口是否可用、次数是否真实、责任归因是否清楚；A 使用窗口不处理“回答质量不满意”退款。</p>
+            </article>
+            <article class="record-card">
+              <span>Credit</span>
+              <h3>信用分控曝光</h3>
+              <p>完成率、准时率、无争议、保证金档位和退款失败率共同影响曝光、限额、保证金和放款周期。</p>
+            </article>
+            <article class="record-card">
+              <span>Anti Abuse</span>
+              <h3>先做轻风控</h3>
+              <p>保证金档位、新卖家限额、延迟放款、平台内闭环、风险声明和 Receipt，用来压住虚假能力、超卖和恶意退款。</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -3888,7 +4379,7 @@
           <div>
             <p class="section-kicker">Matching Flow</p>
             <h2 id="flow-title">平台只做撮合，不碰钥匙</h2>
-            <p class="section-copy">MVP 的重点是让供需双方快速看懂彼此预期，并通过 DM 自行确认共享方式、时间窗口和费用。</p>
+            <p class="section-copy">MVP 的重点是让供需双方快速看懂彼此预期，通过 DM 自行确认共享方式，同时用预约窗口和 Receipt 留下统一过程记录。</p>
           </div>
         </div>
         <div class="flow">
@@ -3898,11 +4389,11 @@
           </article>
           <article class="flow-step" data-step="2" style="--step-color: #38bfd2;">
             <h3>拼单者挑车</h3>
-            <p>按服务类型、价格、可用时间和共享比例筛选合适车源。</p>
+            <p>按服务类型、价格、可用时间和共享比例筛选车源，并提交轻量预约表单。</p>
           </article>
           <article class="flow-step" data-step="3" style="--step-color: #2f9c78;">
-            <h3>双方 DM</h3>
-            <p>平台提供私聊入口，后续交付和使用由双方自行约定。</p>
+            <h3>DM + 回执</h3>
+            <p>平台提供私聊入口，并记录开始、结束、成功响应、争议状态和结算状态。</p>
           </article>
         </div>
         <p class="fine-print">Demo 中的账号、价格和车主均为虚构展示，用于表达产品形态和信息结构。</p>
@@ -3953,6 +4444,120 @@
     const parkingPrice = document.querySelector("#parkingPrice");
     const parkingRule = document.querySelector("#parkingRule");
     const parkingDm = document.querySelector("#parkingDm");
+    const parkingCode = document.querySelector("#parkingCode");
+    const parkingCodeMeta = document.querySelector("#parkingCodeMeta");
+    const bookingForm = document.querySelector("#bookingForm");
+    const bookingOrderType = document.querySelector("#bookingOrderType");
+    const bookingTask = document.querySelector("#bookingTask");
+    const bookingModel = document.querySelector("#bookingModel");
+    const bookingDuration = document.querySelector("#bookingDuration");
+    const bookingResponses = document.querySelector("#bookingResponses");
+    const bookingBudget = document.querySelector("#bookingBudget");
+    const riskCheck = document.querySelector("#riskCheck");
+    const termsCheck = document.querySelector("#termsCheck");
+    const bookingEstimate = document.querySelector("#bookingEstimate");
+    const bookingStatus = document.querySelector("#bookingStatus");
+    const receiptId = document.querySelector("#receiptId");
+    const receiptCode = document.querySelector("#receiptCode");
+    const receiptStart = document.querySelector("#receiptStart");
+    const receiptEnd = document.querySelector("#receiptEnd");
+    const receiptCommit = document.querySelector("#receiptCommit");
+    const receiptResult = document.querySelector("#receiptResult");
+    const receiptDispute = document.querySelector("#receiptDispute");
+    const receiptSettlement = document.querySelector("#receiptSettlement");
+    const ownerSlotType = document.querySelector("#ownerSlotType");
+    const ownerShares = document.querySelector("#ownerShares");
+
+    const slotCodes = {
+      "TL-CHAT-30": { window: 30, commit: 20, order: "A 使用窗口", label: "标准聊天车位" },
+      "TL-LONG-60": { window: 60, commit: 20, order: "A 使用窗口", label: "长文档车位" },
+      "TL-ASSIST-30": { window: 30, commit: 20, order: "B 协助使用", label: "协助使用车位" }
+    };
+
+    let selectedSlot = { code: "TL-CHAT-30", task: "写作", model: "GPT" };
+
+    const setSelectValue = (select, value) => {
+      const option = Array.from(select.options).find((item) => item.value === value || item.textContent === value);
+      if (option) select.value = option.value;
+    };
+
+    const inferSlot = (spot) => {
+      const text = `${spot.dataset.car} ${spot.dataset.zone} ${spot.dataset.desc}`.toLowerCase();
+      let code = "TL-CHAT-30";
+      let task = "写作";
+      let model = "GPT";
+
+      if (text.includes("claude") || text.includes("文档") || text.includes("长文") || text.includes("研究") || text.includes("perplexity") || text.includes("notion")) {
+        code = "TL-LONG-60";
+        task = "文档处理";
+      }
+
+      if (text.includes("copilot") || text.includes("cursor") || text.includes("windsurf") || text.includes("开发") || text.includes("代码")) {
+        code = "TL-ASSIST-30";
+        task = "编程";
+        model = "Cursor / Copilot";
+      }
+
+      if (text.includes("claude")) model = "Claude";
+      if (text.includes("gemini") || text.includes("google")) model = "Gemini";
+      if (text.includes("gpt") || text.includes("chatgpt")) model = "GPT";
+      if (text.includes("midjourney") || text.includes("runway") || text.includes("notion") || text.includes("perplexity")) model = "其他";
+
+      return { code, task, model };
+    };
+
+    const resolveBookingCode = () => {
+      if (bookingOrderType.value === "B 协助使用") return "TL-ASSIST-30";
+      if (Number(bookingDuration.value) >= 60 || bookingTask.value === "文档处理") return "TL-LONG-60";
+      if (selectedSlot.code === "TL-LONG-60") return "TL-LONG-60";
+      return "TL-CHAT-30";
+    };
+
+    const renderCode = (code) => {
+      const meta = slotCodes[code];
+      parkingCode.textContent = code;
+      parkingCodeMeta.textContent = `${meta.window} 分钟窗口 · 承诺 ${meta.commit} 次成功响应 · ${meta.order}`;
+      receiptCode.textContent = code;
+      receiptCommit.textContent = String(meta.commit);
+    };
+
+    const updateBookingEstimate = () => {
+      const code = resolveBookingCode();
+      const duration = Number(bookingDuration.value);
+      const responses = Number(bookingResponses.value);
+      const windowFee = { 15: 5, 30: 9, 60: 16, 120: 30 }[duration] || Math.max(5, Math.round(duration * 0.25));
+      const modelCoef = {
+        GPT: 1.3,
+        Claude: 1.5,
+        Gemini: 1.1,
+        DeepSeek: 1,
+        Qwen: 0.9,
+        "Cursor / Copilot": 1.8,
+        "其他": 1.2
+      }[bookingModel.value] || 1;
+      const taskCoef = {
+        摘要: 1,
+        翻译: 1,
+        写作: 1.1,
+        编程: 2,
+        文档处理: 1.5,
+        数据整理: 1.2,
+        其他: 1.2
+      }[bookingTask.value] || 1;
+      const assistFee = bookingOrderType.value === "B 协助使用" ? Math.ceil(duration / 30) * 10 : 0;
+      const estimate = Math.round(windowFee + responses * 0.8 * modelCoef * taskCoef + assistFee);
+      const low = Math.max(8, Math.round(estimate * 0.86));
+      const high = Math.round(estimate * 1.16);
+      bookingEstimate.textContent = `¥${low}-${high}`;
+      renderCode(code);
+    };
+
+    const formatReceiptTime = (date) => date.toLocaleString("zh-CN", {
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -3979,6 +4584,7 @@
 
     const selectParkingSpot = (spot) => {
       parkingSpots.forEach((item) => item.setAttribute("aria-pressed", String(item === spot)));
+      selectedSlot = inferSlot(spot);
       parkingName.textContent = spot.dataset.car;
       parkingDescription.textContent = spot.dataset.desc;
       parkingZone.textContent = spot.dataset.zone;
@@ -3988,6 +4594,13 @@
       parkingRule.textContent = spot.dataset.rule;
       parkingDm.dataset.car = spot.dataset.car;
       parkingDm.dataset.owner = spot.dataset.owner;
+      setSelectValue(bookingOrderType, slotCodes[selectedSlot.code].order);
+      setSelectValue(bookingTask, selectedSlot.task);
+      setSelectValue(bookingModel, selectedSlot.model);
+      setSelectValue(bookingDuration, String(slotCodes[selectedSlot.code].window));
+      setSelectValue(bookingResponses, String(slotCodes[selectedSlot.code].commit));
+      bookingStatus.textContent = `已选 ${slotCodes[selectedSlot.code].label}，可先 DM 或直接生成预约。`;
+      updateBookingEstimate();
     };
 
     parkingSpots.forEach((spot) => {
@@ -4020,10 +4633,42 @@
 
     shareSlider.addEventListener("input", updateShare);
     publishBtn.addEventListener("click", () => {
-      publishBtn.textContent = "已发布到车库";
+      publishBtn.textContent = `已发布 ${ownerSlotType.value} × ${ownerShares.value}`;
       window.setTimeout(() => {
         publishBtn.textContent = "发布到车库";
       }, 1600);
+    });
+
+    [bookingOrderType, bookingTask, bookingModel, bookingDuration, bookingResponses, bookingBudget].forEach((input) => {
+      input.addEventListener("input", updateBookingEstimate);
+      input.addEventListener("change", updateBookingEstimate);
+    });
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!riskCheck.checked || !termsCheck.checked) {
+        bookingStatus.textContent = "请先确认风险声明和平台内交易条款，再生成预约。";
+        return;
+      }
+
+      const code = resolveBookingCode();
+      const duration = Number(bookingDuration.value);
+      const committed = Number(bookingResponses.value);
+      const startedAt = new Date();
+      const endedAt = new Date(startedAt.getTime() + duration * 60 * 1000);
+      const id = Date.now().toString(36).slice(-6).toUpperCase();
+      const failed = committed >= 50 ? 3 : committed >= 20 ? 1 : 0;
+      const success = committed - failed;
+
+      receiptId.textContent = `TLR-${id}`;
+      receiptCode.textContent = code;
+      receiptStart.textContent = formatReceiptTime(startedAt);
+      receiptEnd.textContent = formatReceiptTime(endedAt);
+      receiptCommit.textContent = String(committed);
+      receiptResult.textContent = `${success} / ${failed}`;
+      receiptDispute.textContent = "无";
+      receiptSettlement.textContent = "待结算";
+      bookingStatus.textContent = `预约已记录：${code}，预算 ¥${bookingBudget.value || "待议"}，等待 ${parkingOwner.textContent} 确认可履约时间。`;
     });
 
     sendBtn.addEventListener("click", () => {
