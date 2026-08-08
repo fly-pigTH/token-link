@@ -1,4 +1,4 @@
-# [legacy] Token Link
+# [] Token Link
 
 AI subscription car-rental style matching demo.
 
